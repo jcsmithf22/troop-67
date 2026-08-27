@@ -1,15 +1,12 @@
-/* The integration's default injected base.css file */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@layer base {
-  :root {
-    --tan: 41 23% 79%;
-    --red: 353 85% 44%;
-    --olive: 138 27% 19%;
-    --blue: 212 100% 26%;
-    --warm-gray: 200 2% 32%;
-    --white: 0 0% 100%;
-  }
+@theme inline {
+  --color-scouting-tan: hsl(41 23% 79%);
+  --color-scouting-red: hsl(353 85% 44%);
+  --color-scouting-olive: hsl(138 27% 19%);
+  --color-scouting-blue: hsl(212 100% 26%);
+  --color-scouting-warm-gray: hsl(200 2% 32%);
+  --color-scouting-white: hsl(0 0% 100%);
+  --font-main: var(--font-roboto-condensed);
+  --font-heading: var(--font-roboto-slab);
 }
