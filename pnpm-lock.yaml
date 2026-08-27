@@ -23,12 +23,12 @@ importers:
       '@fontsource-variable/roboto-slab':
         specifier: ^5.1.0
         version: 5.1.0
-      '@juliangarnierorg/anime-beta':
-        specifier: 4.0.0-beta.102.2
-        version: 4.0.0-beta.102.2
       '@webcomponents/template-shadowroot':
         specifier: ^0.2.1
         version: 0.2.1
+      animejs:
+        specifier: ^4.5.0
+        version: 4.5.0
       astro:
         specifier: 5.0.0-beta.8
         version: 5.0.0-beta.8(jiti@1.21.6)(rollup@4.27.3)(typescript@5.6.3)(yaml@2.6.1)
@@ -564,9 +564,6 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@juliangarnierorg/anime-beta@4.0.0-beta.102.2':
-    resolution: {integrity: sha512-A8IuffDHA9Sz04gHYbsXGluTmiZAKVcMPwwq2mj+kTBlWUxNg7amyF7LNt4oyfkcrWCJHs1Gd7qD7+1CGi1xjA==, tarball: https://npm.pkg.github.com/download/@juliangarnierorg/anime-beta/4.0.0-beta.102.2/c752d4a10404bf00adec29ddedcb9347da62a130}
-
   '@lit-labs/ssr-client@1.1.7':
     resolution: {integrity: sha512-VvqhY/iif3FHrlhkzEPsuX/7h/NqnfxLwVf0p8ghNIlKegRyRqgeaJevZ57s/u/LiFyKgqksRP5n+LmNvpxN+A==}
 
@@ -785,6 +782,17 @@ packages:
 
   ajv@8.17.1:
     resolution: {integrity: sha512-B/gBuNg5SiMTrPkC+A2+cW0RszwxYmn6VYxB/inlBStS5nx6xHIt/ehKRhIMhqusl7a8LjQoZnjCs5vhwxOQ1g==}
+
+  animejs@4.5.0:
+    resolution: {integrity: sha512-NQimYX+lz8WaXonGS9zVVoviCIAjONeJayxacUditaivYLqyXgGjFKjuyl0aUUhFKm5MriX9ty1TGovNzoJQWA==}
+    peerDependencies:
+      '@types/three': '>=0.150.0'
+      three: '>=0.150.0'
+    peerDependenciesMeta:
+      '@types/three':
+        optional: true
+      three:
+        optional: true
 
   ansi-align@3.0.1:
     resolution: {integrity: sha512-IOfwwBF5iczOjp/WeY4YxyjqAFMQoZufdQWDd19SEExbVLNXqvpzSJ/M7Za4/sCPmQ0+GRquoA7bGcINcxew6w==}
@@ -2599,8 +2607,6 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@juliangarnierorg/anime-beta@4.0.0-beta.102.2': {}
-
   '@lit-labs/ssr-client@1.1.7':
     dependencies:
       '@lit/reactive-element': 2.0.4
@@ -2827,6 +2833,8 @@ snapshots:
       fast-uri: 3.0.3
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
+
+  animejs@4.5.0: {}
 
   ansi-align@3.0.1:
     dependencies:

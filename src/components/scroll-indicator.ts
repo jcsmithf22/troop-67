@@ -1,6 +1,6 @@
 import { LitElement, html, css } from "lit";
 import { customElement, query } from "lit/decorators.js";
-import { animate, onScroll } from "@juliangarnierorg/anime-beta";
+import { animate, onScroll } from "animejs";
 
 @customElement("scroll-indicator")
 export class ScrollIndicator extends LitElement {
