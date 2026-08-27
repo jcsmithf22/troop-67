@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+run_step() {
+  local description="$1"
+  shift
+
+  printf '\n==> %s\n' "$description"
+  time "$@"
+}
+
+run_step "Enable the package manager pinned in package.json" corepack enable
+run_step "Install dependencies from pnpm-lock.yaml" pnpm install --frozen-lockfile
