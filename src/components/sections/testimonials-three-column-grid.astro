@@ -1,0 +1,19 @@
+---
+import Section from "@/components/elements/section.astro";
+
+interface Props {
+  id?: string;
+  eyebrow?: string;
+  headline?: string;
+  class?: string;
+}
+
+const { ...props } = Astro.props;
+---
+
+<Section {...props}>
+  <slot name="subheadline" slot="subheadline" />
+  <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+    <slot />
+  </div>
+</Section>

@@ -1,0 +1,31 @@
+---
+import Container from "@/components/elements/container.astro";
+import Subheading from "@/components/elements/subheading.astro";
+import Text from "@/components/elements/text.astro";
+
+interface Props {
+  id?: string;
+  headline?: string;
+  class?: string;
+}
+
+const { id, headline, class: className } = Astro.props;
+---
+
+<section id={id} class:list={["py-16", className]}>
+  <Container class="grid grid-cols-1 gap-x-2 gap-y-8 lg:grid-cols-2">
+    <div class="flex flex-col gap-6">
+      <Subheading>{headline}</Subheading>
+      {
+        Astro.slots.has("subheadline") && (
+          <Text class="flex flex-col gap-4 text-pretty">
+            <slot name="subheadline" />
+          </Text>
+        )
+      }
+    </div>
+    <div class="divide-y divide-olive-950/10 border-y border-olive-950/10 dark:divide-white/10 dark:border-white/10">
+      <slot />
+    </div>
+  </Container>
+</section>

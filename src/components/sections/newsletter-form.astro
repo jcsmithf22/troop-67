@@ -1,0 +1,33 @@
+---
+import ArrowNarrowRightIcon from "@/components/icons/arrow-narrow-right-icon.astro";
+
+interface Props {
+  headline: string;
+  action?: string;
+  class?: string;
+}
+
+const { headline, action, class: className } = Astro.props;
+---
+
+<form class:list={["flex max-w-sm flex-col gap-2", className]} action={action}>
+  <p>{headline}</p>
+  <div class="flex flex-col gap-4 text-olive-700 dark:text-olive-400">
+    <slot name="subheadline" />
+  </div>
+  <div class="flex items-center border-b border-olive-950/20 py-2 has-[input:focus]:border-olive-950 dark:border-white/20 dark:has-[input:focus]:border-white">
+    <input
+      type="email"
+      placeholder="Email"
+      aria-label="Email"
+      class="flex-1 text-olive-950 focus:outline-hidden dark:text-white"
+    />
+    <button
+      type="submit"
+      aria-label="Subscribe"
+      class="relative inline-flex size-7 items-center justify-center rounded-full after:absolute after:-inset-2 hover:bg-olive-950/10 dark:hover:bg-white/10 after:pointer-fine:hidden"
+    >
+      <ArrowNarrowRightIcon />
+    </button>
+  </div>
+</form>

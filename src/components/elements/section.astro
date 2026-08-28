@@ -1,0 +1,36 @@
+---
+import Container from "./container.astro";
+import Eyebrow from "./eyebrow.astro";
+import Subheading from "./subheading.astro";
+import Text from "./text.astro";
+
+interface Props {
+  id?: string;
+  eyebrow?: string;
+  headline?: string;
+  class?: string;
+}
+
+const { id, eyebrow, headline, class: className } = Astro.props;
+const subheadline = (await Astro.slots.render("subheadline")).trim();
+---
+
+<section id={id} class:list={["py-16", className]}>
+  <Container class="flex flex-col gap-10 sm:gap-16">
+    {
+      headline && (
+        <div class="flex max-w-2xl flex-col gap-6">
+          <div class="flex flex-col gap-2">
+            {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+            <Subheading>{headline}</Subheading>
+          </div>
+          {subheadline && <Text class="text-pretty" set:html={subheadline} />}
+          <slot name="cta" />
+        </div>
+      )
+    }
+    <div>
+      <slot />
+    </div>
+  </Container>
+</section>

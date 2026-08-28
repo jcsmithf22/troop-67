@@ -1,0 +1,25 @@
+---
+const sizes = {
+  md: "px-3 py-1",
+  lg: "px-4 py-2",
+};
+
+interface Props {
+  size?: keyof typeof sizes;
+  type?: "button" | "submit" | "reset";
+  class?: string;
+}
+
+const { size = "md", type = "button", class: className } = Astro.props;
+---
+
+<button
+  type={type}
+  class:list={[
+    "inline-flex shrink-0 items-center justify-center gap-1 rounded-full bg-olive-950/10 text-sm/7 font-medium text-olive-950 hover:bg-olive-950/15 dark:bg-white/10 dark:text-white dark:hover:bg-white/20",
+    sizes[size],
+    className,
+  ]}
+>
+  <slot />
+</button>

@@ -22,7 +22,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: var(--color-olive-100);
-    --scroll-padding-top: 5.25rem;
+    --scroll-padding-top: 0;
     scroll-padding-top: var(--scroll-padding-top);
 
     @variant dark {

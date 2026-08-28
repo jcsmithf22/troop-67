@@ -1,0 +1,30 @@
+---
+import Container from "@/components/elements/container.astro";
+import Heading from "@/components/elements/heading.astro";
+import Text from "@/components/elements/text.astro";
+
+interface Props {
+  id?: string;
+  headline: string;
+  class?: string;
+}
+
+const { id, headline, class: className } = Astro.props;
+---
+
+<section id={id} class:list={["py-16", className]}>
+  <Container class="flex flex-col gap-16">
+    <div class="flex flex-col gap-32">
+      <div class="flex flex-col items-start gap-6">
+        <slot name="eyebrow" />
+        <Heading class="max-w-5xl">{headline}</Heading>
+        <Text size="lg" class="flex max-w-3xl flex-col gap-4">
+          <slot name="subheadline" />
+        </Text>
+        <slot name="cta" />
+      </div>
+      <slot name="demo" />
+    </div>
+    <slot name="footer" />
+  </Container>
+</section>

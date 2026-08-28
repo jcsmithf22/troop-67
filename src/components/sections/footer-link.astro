@@ -1,0 +1,14 @@
+---
+interface Props {
+  href: string;
+  class?: string;
+}
+
+const { href, class: className } = Astro.props;
+---
+
+<li class:list={["text-olive-700 dark:text-olive-400", className]}>
+  <a href={href}>
+    <slot />
+  </a>
+</li>

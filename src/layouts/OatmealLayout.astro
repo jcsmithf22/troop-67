@@ -3,17 +3,26 @@ import "@/styles/oatmeal.css";
 import { Font, Image } from "astro:assets";
 import scoutLogo from "@/images/scout_color.png";
 
+import ButtonLink from "@/components/elements/button-link.astro";
+import Main from "@/components/elements/main.astro";
+import PlainButtonLink from "@/components/elements/plain-button-link.astro";
+import GitHubIcon from "@/components/icons/social/github-icon.astro";
+import XIcon from "@/components/icons/social/x-icon.astro";
+import YouTubeIcon from "@/components/icons/social/youtube-icon.astro";
+import FooterCategory from "@/components/sections/footer-category.astro";
+import FooterLink from "@/components/sections/footer-link.astro";
+import FooterWithNewsletterFormCategoriesAndSocialIcons from "@/components/sections/footer-with-newsletter-form-categories-and-social-icons.astro";
+import NavbarLink from "@/components/sections/navbar-link.astro";
+import NavbarLogo from "@/components/sections/navbar-logo.astro";
+import NavbarWithLogoAndRightAlignedLinksAndActions from "@/components/sections/navbar-with-logo-and-right-aligned-links-and-actions.astro";
+import NewsletterForm from "@/components/sections/newsletter-form.astro";
+import SocialLink from "@/components/sections/social-link.astro";
+
 interface Props {
   title?: string;
 }
 
 const { title = "Oatmeal Kit Demo" } = Astro.props;
-const footerGroups = [
-  ["Product", "Features", "Pricing", "Integrations"],
-  ["Company", "About", "Careers", "Blog", "Press Kit"],
-  ["Resources", "Help Center", "API Docs", "Status", "Contact"],
-  ["Legal", "Privacy Policy", "Terms of Service", "Security"],
-];
 ---
 
 <!doctype html>
@@ -28,275 +37,68 @@ const footerGroups = [
     <title>{title}</title>
   </head>
   <body>
-    <header
-      id="navbar"
-      class="sticky top-0 z-10 bg-olive-100 dark:bg-olive-950"
-    >
-      <nav>
-        <div
-          class="mx-auto flex h-(--scroll-padding-top) max-w-7xl items-center gap-4 px-6 lg:px-10"
-        >
-          <a
-            href="/homepage-1"
-            class="inline-flex flex-1 items-center gap-2 text-sm/7 font-medium text-olive-950 dark:text-white"
-          >
-            <Image
-              src={scoutLogo}
-              alt=""
-              width={36}
-              densities={[1, 2]}
-              class="h-9 w-auto object-contain"
-            />
-            <span class="pb-1 font-display text-2xl/7 tracking-[-0.03em]"
-              >Appleton Troop 67</span
-            >
-          </a>
-          <div class="flex flex-1 items-center justify-end gap-4">
-            <div class="flex shrink-0 items-center gap-5">
-              <a
-                href="#"
-                class="group hidden items-center justify-between gap-2 text-sm/7 font-medium text-olive-950 lg:inline-flex dark:text-white"
-                >Our Troop</a
-              >
-              <a
-                href="#"
-                class="group hidden items-center justify-between gap-2 text-sm/7 font-medium text-olive-950 lg:inline-flex dark:text-white"
-                >Calendar</a
-              >
-              <a
-                href="#"
-                class="hidden shrink-0 items-center justify-center gap-2 rounded-full px-3 py-1 text-sm/7 font-medium text-olive-950 hover:bg-olive-950/10 dark:text-white dark:hover:bg-white/10"
-                >Log in</a
-              >
-              <a
-                href="#"
-                class="inline-flex shrink-0 items-center justify-center gap-1 rounded-full bg-olive-950 px-3 py-1 text-sm/7 font-medium text-white hover:bg-olive-800 dark:bg-olive-300 dark:text-olive-950 dark:hover:bg-olive-200"
-                >Get started</a
-              >
-            </div>
-            <button
-              command="show-modal"
-              commandfor="mobile-menu"
-              aria-label="Toggle menu"
-              class="inline-flex rounded-full p-1.5 text-olive-950 hover:bg-olive-950/10 lg:hidden dark:text-white dark:hover:bg-white/10"
-            >
-              <svg viewBox="0 0 24 24" fill="currentColor" class="size-6"
-                ><path
-                  fill-rule="evenodd"
-                  d="M3.748 8.248a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75ZM3.748 15.75a.75.75 0 0 1 .75-.751h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Z"
-                  clip-rule="evenodd"></path></svg
-              >
-            </button>
-          </div>
-        </div>
-        <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
-          <div
-            class="fixed inset-0 bg-olive-100 px-6 py-6 lg:px-10 dark:bg-olive-950"
-          >
-            <div class="flex justify-end">
-              <button
-                command="close"
-                commandfor="mobile-menu"
-                aria-label="Toggle menu"
-                class="inline-flex rounded-full p-1.5 text-olive-950 hover:bg-olive-950/10 dark:text-white dark:hover:bg-white/10"
-              >
-                <svg
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="size-6"
-                  ><path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M6 18 18 6M6 6l12 12"></path></svg
-                >
-              </button>
-            </div>
-            <div class="mt-6 flex flex-col gap-6">
-              <a
-                href="#"
-                class="group inline-flex items-center justify-between gap-2 text-3xl/10 font-medium text-olive-950 lg:text-sm/7 dark:text-white"
-                >Our Troop <span
-                  class="inline-flex p-1.5 opacity-0 group-hover:opacity-100 lg:hidden"
-                  aria-hidden="true"
-                  ><svg
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="size-6"
-                    ><path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="m8.25 4.5 7.5 7.5-7.5 7.5"></path></svg
-                  ></span
-                ></a
-              >
-              <a
-                href="#"
-                class="group inline-flex items-center justify-between gap-2 text-3xl/10 font-medium text-olive-950 lg:text-sm/7 dark:text-white"
-                >Calendar <span
-                  class="inline-flex p-1.5 opacity-0 group-hover:opacity-100 lg:hidden"
-                  aria-hidden="true"
-                  ><svg
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="size-6"
-                    ><path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="m8.25 4.5 7.5 7.5-7.5 7.5"></path></svg
-                  ></span
-                ></a
-              >
-            </div>
-          </div>
-        </dialog>
-      </nav>
-    </header>
+    <NavbarWithLogoAndRightAlignedLinksAndActions id="navbar">
+      <NavbarLogo slot="logo" href="/homepage-1">
+        <span class="inline-flex items-center gap-2 text-sm/7 font-medium text-olive-950 dark:text-white">
+          <Image src={scoutLogo} alt="" width={36} densities={[1, 2]} class="h-9 w-auto object-contain" />
+          <span class="pb-1 font-display text-2xl/7 tracking-[-0.03em]">Appleton Troop 67</span>
+        </span>
+      </NavbarLogo>
+      <Fragment slot="links">
+        <NavbarLink href="#">Our Troop</NavbarLink>
+        <NavbarLink href="#">Calendar</NavbarLink>
+      </Fragment>
+      <Fragment slot="actions">
+        <PlainButtonLink href="#" class="hidden">Log in</PlainButtonLink>
+        <ButtonLink href="#">Get started</ButtonLink>
+      </Fragment>
+    </NavbarWithLogoAndRightAlignedLinksAndActions>
 
-    <main class="isolate overflow-clip"><slot /></main>
+    <Main>
+      <slot />
+    </Main>
 
-    <footer id="footer" class="pt-16">
-      <div
-        class="bg-olive-950/2.5 py-16 text-olive-950 dark:bg-white/5 dark:text-white"
-      >
-        <div
-          class="mx-auto flex w-full max-w-2xl flex-col gap-16 px-6 md:max-w-3xl lg:max-w-7xl lg:px-10"
-        >
-          <div
-            class="grid grid-cols-1 gap-x-6 gap-y-16 text-sm/7 lg:grid-cols-2"
-          >
-            <form class="flex max-w-sm flex-col gap-2" action="#">
-              <p>Stay in the loop</p>
-              <div
-                class="flex flex-col gap-4 text-olive-700 dark:text-olive-400"
-              >
-                <p>
-                  Get customer support tips, product updates and customer
-                  stories that you can archive as soon as they arrive.
-                </p>
-              </div>
-              <div
-                class="flex items-center border-b border-olive-950/20 py-2 has-[input:focus]:border-olive-950 dark:border-white/20 dark:has-[input:focus]:border-white"
-              >
-                <input
-                  type="email"
-                  placeholder="Email"
-                  aria-label="Email"
-                  class="flex-1 text-olive-950 focus:outline-hidden dark:text-white"
-                />
-                <button
-                  type="submit"
-                  aria-label="Subscribe"
-                  class="relative inline-flex size-7 items-center justify-center rounded-full after:absolute after:-inset-2 hover:bg-olive-950/10 dark:hover:bg-white/10 after:pointer-fine:hidden"
-                >
-                  <svg
-                    width="13"
-                    height="7"
-                    viewBox="0 0 13 7"
-                    fill="none"
-                    stroke-width="1"
-                    class="inline-block"
-                  >
-                    <path
-                      d="M12.5049 3.49512L.504883 3.49512"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"></path>
-                    <path
-                      d="M9.5 6.5L12.5 3.5L9.5.5"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"></path>
-                  </svg>
-                </button>
-              </div>
-            </form>
-            <nav
-              class="grid grid-cols-2 gap-6 sm:has-[>:last-child:nth-child(3)]:grid-cols-3 sm:has-[>:nth-child(5)]:grid-cols-3 md:has-[>:last-child:nth-child(4)]:grid-cols-4 lg:max-xl:has-[>:last-child:nth-child(4)]:grid-cols-2"
-            >
-              {
-                footerGroups.map(([title, ...links]) => (
-                  <div>
-                    <h3>{title}</h3>
-                    <ul role="list" class="mt-2 flex flex-col gap-2">
-                      {links.map((link) => (
-                        <li class="text-olive-700 dark:text-olive-400">
-                          <a href="#">{link}</a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))
-              }
-            </nav>
-          </div>
-          <div class="flex items-center justify-between gap-10 text-sm/7">
-            <div class="text-olive-600 dark:text-olive-500">
-              © 2025 Oatmeal, Inc.
-            </div>
-            <div class="flex items-center gap-4 sm:gap-10">
-              <a
-                href="https://x.com"
-                target="_blank"
-                aria-label="X"
-                class="text-olive-950 *:size-6 dark:text-white"
-                ><svg
-                  width="24"
-                  height="24"
-                  class="inline-block"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  role="img"
-                  ><path
-                    d="M13.6833 10.6218L20.2401 3H18.6864L12.9931 9.61788L8.44583 3H3.20117L10.0775 13.0074L3.20117 21H4.75501L10.7673 14.0113L15.5695 21H20.8141L13.6833 10.6218ZM11.5551 13.0956L10.8584 12.0991L5.31488 4.16971H7.7015L12.1752 10.5689L12.8719 11.5655L18.6871 19.8835H16.3005L11.5551 13.0956Z"
-                  ></path></svg
-                ></a
-              >
-              <a
-                href="https://github.com"
-                target="_blank"
-                aria-label="GitHub"
-                class="text-olive-950 *:size-6 dark:text-white"
-                ><svg
-                  width="24"
-                  height="24"
-                  class="inline-block"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  role="img"
-                  ><path
-                    fill-rule="evenodd"
-                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                    clip-rule="evenodd"></path></svg
-                ></a
-              >
-              <a
-                href="https://www.youtube.com"
-                target="_blank"
-                aria-label="YouTube"
-                class="text-olive-950 *:size-6 dark:text-white"
-                ><svg
-                  width="24"
-                  height="24"
-                  class="inline-block"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  role="img"
-                  ><path
-                    fill-rule="evenodd"
-                    d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
-                    clip-rule="evenodd"></path></svg
-                ></a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <FooterWithNewsletterFormCategoriesAndSocialIcons id="footer" fineprint="© 2025 Oatmeal, Inc.">
+      <NewsletterForm slot="cta" headline="Stay in the loop" action="#">
+        <p slot="subheadline">
+          Get customer support tips, product updates and customer stories that you can archive as soon as they arrive.
+        </p>
+      </NewsletterForm>
+      <Fragment slot="links">
+        <FooterCategory title="Product">
+          <FooterLink href="#">Features</FooterLink>
+          <FooterLink href="#">Pricing</FooterLink>
+          <FooterLink href="#">Integrations</FooterLink>
+        </FooterCategory>
+        <FooterCategory title="Company">
+          <FooterLink href="#">About</FooterLink>
+          <FooterLink href="#">Careers</FooterLink>
+          <FooterLink href="#">Blog</FooterLink>
+          <FooterLink href="#">Press Kit</FooterLink>
+        </FooterCategory>
+        <FooterCategory title="Resources">
+          <FooterLink href="#">Help Center</FooterLink>
+          <FooterLink href="#">API Docs</FooterLink>
+          <FooterLink href="#">Status</FooterLink>
+          <FooterLink href="#">Contact</FooterLink>
+        </FooterCategory>
+        <FooterCategory title="Legal">
+          <FooterLink href="#">Privacy Policy</FooterLink>
+          <FooterLink href="#">Terms of Service</FooterLink>
+          <FooterLink href="#">Security</FooterLink>
+        </FooterCategory>
+      </Fragment>
+      <Fragment slot="socialLinks">
+        <SocialLink href="https://x.com" name="X">
+          <XIcon />
+        </SocialLink>
+        <SocialLink href="https://github.com" name="GitHub">
+          <GitHubIcon />
+        </SocialLink>
+        <SocialLink href="https://www.youtube.com" name="YouTube">
+          <YouTubeIcon />
+        </SocialLink>
+      </Fragment>
+    </FooterWithNewsletterFormCategoriesAndSocialIcons>
   </body>
 </html>
