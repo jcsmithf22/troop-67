@@ -2,15 +2,14 @@
 import { Image } from "astro:assets";
 import scouts from "@/images/scouts.jpg";
 import dusk from "@/images/dusk.jpg";
+import meeting from "@/images/meeting.webp";
 
 import OatmealLayout from "@/layouts/OatmealLayout.astro";
 
-import AnnouncementBadge from "@/components/elements/announcement-badge.astro";
 import ButtonLink from "@/components/elements/button-link.astro";
 import Link from "@/components/elements/link.astro";
 import PlainButtonLink from "@/components/elements/plain-button-link.astro";
 import Photo from "@/components/elements/photo.astro";
-import SoftButtonLink from "@/components/elements/soft-button-link.astro";
 import ArrowNarrowRightIcon from "@/components/icons/arrow-narrow-right-icon.astro";
 import ChevronIcon from "@/components/icons/chevron-icon.astro";
 import CallToActionSimple from "@/components/sections/call-to-action-simple.astro";
@@ -19,10 +18,6 @@ import FAQsTwoColumnAccordion from "@/components/sections/faqs-two-column-accord
 import Feature from "@/components/sections/feature.astro";
 import FeaturesTwoColumnWithDemos from "@/components/sections/features-two-column-with-demos.astro";
 import HeroLeftAlignedWithDemo from "@/components/sections/hero-left-aligned-with-demo.astro";
-import Plan from "@/components/sections/plan.astro";
-import PricingMultiTier from "@/components/sections/pricing-multi-tier.astro";
-import Testimonial from "@/components/sections/testimonial.astro";
-import TestimonialThreeColumnGrid from "@/components/sections/testimonials-three-column-grid.astro";
 ---
 
 <OatmealLayout>
@@ -30,13 +25,8 @@ import TestimonialThreeColumnGrid from "@/components/sections/testimonials-three
   <HeroLeftAlignedWithDemo
     id="hero"
     headline="Forge your path. Determine your future. Embrace leadership."
+    class="pt-22"
   >
-    <!--     <AnnouncementBadge
-      slot="eyebrow"
-      href="#"
-      text="Oatmeal raises 80M Series A funding"
-      cta="Learn more"
-    /> -->
     <p slot="subheadline">
       Since 1966, Troop 67 has provided a rich Scouting experience through a
       three pronged program. Weekly meetings provide foundational leadership and
@@ -78,46 +68,44 @@ import TestimonialThreeColumnGrid from "@/components/sections/testimonials-three
   <!-- Features -->
   <FeaturesTwoColumnWithDemos
     id="features"
-    eyebrow="Powerful features"
     headline="Everything you need to deliver personal, organized, and delightful support."
   >
     <p slot="subheadline">
-      Work smarter, reply faster, and keep every customer conversation right
-      where it belongs — in one simple inbox.
+      Rally behind the genius of Scoutmaster Christopher Allen. Your boys will
+      reach new heights in leadership, teamwork, physics knowledge, and personal
+      growth. They will also attend University of Wisconsin, Madison someday.
     </p>
     <Fragment slot="features">
-      <Feature headline="Weakly meetings">
-        <Photo slot="demo">
-          <Image
-            src={scouts}
-            alt="Scouts from Troop 67"
-            class="h-auto w-full"
-            densities={[1, 2]}
-          />
-        </Photo>
-        <p slot="subheadline">
-          Keep every customer conversation in one clean, collaborative inbox. A
-          single source of truth is much easier to ignore.
-        </p>
-        <Link slot="cta" href="#"
-          >See how it works <ArrowNarrowRightIcon /></Link
-        >
-      </Feature>
-      <Feature headline="Monthly campouts">
+      <Feature headline="Camping adventures">
         <Photo slot="demo">
           <Image
             src={dusk}
-            alt="Scouts from Troop 67"
+            alt="Scouts on an adventure"
             class="h-auto w-full"
             densities={[1, 2]}
           />
         </Photo>
         <p slot="subheadline">
-          Get valuable context without having to read through your customer's
-          long, angry email thread.
+          Every month, scouts get the opportunity to put the skills they learn
+          into practice. Once a year we spend a week at a rustic summer camp, a
+          week at Council Camp, and go on a High Adventure.
+        </p>
+      </Feature>
+      <Feature headline="Weekly meetings">
+        <Photo slot="demo">
+          <Image
+            src={meeting}
+            alt="Scouts in a meeting"
+            class="h-auto w-full"
+            densities={[1, 2]}
+          />
+        </Photo>
+        <p slot="subheadline">
+          We believe the scouts should be part of the process of running the
+          troop, preparing them to be future leaders in the organization.
         </p>
         <Link slot="cta" href="#"
-          >See how it works <ArrowNarrowRightIcon /></Link
+          >View the schedule<ArrowNarrowRightIcon /></Link
         >
       </Feature>
     </Fragment>
@@ -150,7 +138,7 @@ import TestimonialThreeColumnGrid from "@/components/sections/testimonials-three
   <!-- Call To Action -->
   <CallToActionSimple
     id="call-to-action"
-    headline="Ready to make customer support feel simple again?"
+    headline="Become a part of one of the most active Troops in the Appleton Area!"
   >
     <p slot="subheadline">
       Join hundreds of teams using Oatmeal to deliver faster, friendlier email
