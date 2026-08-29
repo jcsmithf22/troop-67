@@ -18,7 +18,7 @@ const { id, question, answer } = Astro.props;
   >
     {question}
     <PlusIcon class="h-lh group-open:hidden" />
-    <MinusIcon class="h-lh hidden group-open:inline" />
+    <MinusIcon class="h-lh group-not-open:hidden" />
   </summary>
   <div class="-mt-2 flex flex-col gap-2 pr-12 pb-4 text-sm/7 text-olive-700 dark:text-olive-400">
     {answer}
