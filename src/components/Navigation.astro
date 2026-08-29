@@ -3,43 +3,45 @@ import { Image } from "astro:assets";
 import logo from "@/images/scout_color.png";
 
 interface NavigationInterface {
-    text: string;
-    href: string;
+  text: string;
+  href: string;
 }
 
 const navigationItems: NavigationInterface[] = [
-    {
-        text: "Home",
-        href: "/",
-    },
-    {
-        text: "Our Troop",
-        href: "/",
-    },
+  {
+    text: "Home",
+    href: "/",
+  },
+  {
+    text: "Our Troop",
+    href: "/",
+  },
+  {
+    text: "Alternate",
+    href: "/homepage-1"
+  }
 ];
 ---
 
 <div>
-    <nav class="flex items-center px-4 sm:px-6 pt-2">
-        <a href="/" class="group flex items-center gap-1.5">
-            <Image src={logo} alt="logo" class="w-9 h-9" />
-            <p
-                class="group-hover:text-black/80 font-heading font-medium text-lg"
-            >
-                Appleton Troop 67
-            </p>
-        </a>
-        <div class="flex-1"></div>
-        <ul class="flex gap-4">
-            {
-                navigationItems.map((item) => (
-                    <li>
-                        <a href={item.href} class="hover:text-black/80">
-                            {item.text}
-                        </a>
-                    </li>
-                ))
-            }
-        </ul>
-    </nav>
+  <nav class="flex items-center px-4 sm:px-6 pt-2">
+    <a href="/" class="group flex items-center gap-1.5">
+      <Image src={logo} alt="logo" class="w-9 h-9" />
+      <p class="group-hover:text-black/80 font-heading font-medium text-lg">
+        Appleton Troop 67
+      </p>
+    </a>
+    <div class="flex-1"></div>
+    <ul class="flex gap-4">
+      {
+        navigationItems.map((item) => (
+          <li>
+            <a href={item.href} class="hover:text-black/80">
+              {item.text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
 </div>
