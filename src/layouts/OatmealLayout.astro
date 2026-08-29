@@ -38,7 +38,7 @@ const { title = "Oatmeal Kit Demo" } = Astro.props;
   </head>
   <body>
     <NavbarWithLogoAndRightAlignedLinksAndActions id="navbar">
-      <NavbarLogo slot="logo" href="/homepage-1">
+      <NavbarLogo slot="logo" href="/">
         <span class="inline-flex items-center gap-2 text-sm/7 font-medium text-olive-950 dark:text-white">
           <Image src={scoutLogo} alt="" width={36} densities={[1, 2]} class="h-9 w-auto object-contain" />
           <span class="pb-1 font-display text-2xl/7 tracking-tighter">Appleton Troop 67</span>
@@ -47,9 +47,6 @@ const { title = "Oatmeal Kit Demo" } = Astro.props;
       <Fragment slot="links">
         <NavbarLink href="#">Our Troop</NavbarLink>
         <NavbarLink href="#">Calendar</NavbarLink>
-      </Fragment>
-      <Fragment slot="actions">
-        <ButtonLink href="#">Get started</ButtonLink>
       </Fragment>
     </NavbarWithLogoAndRightAlignedLinksAndActions>
 
