@@ -1,14 +1,13 @@
 ---
 import { Image } from "astro:assets";
 import scouts from "@/images/scouts.jpg";
+import dusk from "@/images/dusk.jpg";
 
 import OatmealLayout from "@/layouts/OatmealLayout.astro";
 
 import AnnouncementBadge from "@/components/elements/announcement-badge.astro";
 import ButtonLink from "@/components/elements/button-link.astro";
 import Link from "@/components/elements/link.astro";
-import Logo from "@/components/elements/logo.astro";
-import LogoGrid from "@/components/elements/logo-grid.astro";
 import PlainButtonLink from "@/components/elements/plain-button-link.astro";
 import Photo from "@/components/elements/photo.astro";
 import SoftButtonLink from "@/components/elements/soft-button-link.astro";
@@ -22,8 +21,6 @@ import FeaturesTwoColumnWithDemos from "@/components/sections/features-two-colum
 import HeroLeftAlignedWithDemo from "@/components/sections/hero-left-aligned-with-demo.astro";
 import Plan from "@/components/sections/plan.astro";
 import PricingMultiTier from "@/components/sections/pricing-multi-tier.astro";
-import Stat from "@/components/sections/stat.astro";
-import StatsWithGraph from "@/components/sections/stats-with-graph.astro";
 import Testimonial from "@/components/sections/testimonial.astro";
 import TestimonialThreeColumnGrid from "@/components/sections/testimonials-three-column-grid.astro";
 ---
@@ -89,7 +86,7 @@ import TestimonialThreeColumnGrid from "@/components/sections/testimonials-three
       where it belongs — in one simple inbox.
     </p>
     <Fragment slot="features">
-      <Feature headline="Shared Inbox">
+      <Feature headline="Weakly meetings">
         <Photo slot="demo">
           <Image
             src={scouts}
@@ -106,10 +103,10 @@ import TestimonialThreeColumnGrid from "@/components/sections/testimonials-three
           >See how it works <ArrowNarrowRightIcon /></Link
         >
       </Feature>
-      <Feature headline="Inbox Agent">
+      <Feature headline="Monthly campouts">
         <Photo slot="demo">
           <Image
-            src={scouts}
+            src={dusk}
             alt="Scouts from Troop 67"
             class="h-auto w-full"
             densities={[1, 2]}
@@ -125,28 +122,6 @@ import TestimonialThreeColumnGrid from "@/components/sections/testimonials-three
       </Feature>
     </Fragment>
   </FeaturesTwoColumnWithDemos>
-
-  <!-- Stats -->
-  <StatsWithGraph
-    id="stats"
-    eyebrow="Built for scale"
-    headline="The inbox powering customer conversations everywhere."
-  >
-    <p slot="subheadline">
-      Oatmeal helps teams deliver personal, organized, and fast customer support
-      across the world. From small startups to enterprise teams, we process
-      millions of messages each month — using a massive network of low wage
-      workers stationed around the globe.
-    </p>
-    <Stat
-      stat="2M+"
-      text="Emails manually processed every week across thousands of teams."
-    />
-    <Stat
-      stat="99.98%"
-      text="Uptime — because your customers never stop complaining."
-    />
-  </StatsWithGraph>
 
   <!-- Testimonial -->
   <TestimonialThreeColumnGrid
